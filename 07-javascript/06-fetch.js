@@ -1,6 +1,7 @@
 const url = "https://anapioficeandfire.com/api/books/";
 
 const app = document.querySelector("#books");
+const loading = document.querySelector("#loading");
 
 const fetchData = (url) => {
   // Fetch all books from the API of Ice and Fire and append them to the DOM
@@ -35,8 +36,10 @@ const fetchData = (url) => {
       app.style.flexDirection = "column";
       app.style.alignItems = "center";
       app.style.justifyContent = "center";
+    })
+    .finally(() => {
+      app.removeChild(loading);
     });
 };
-//Ask catarina where the slide for hiding loading is. Do this!!!!!
 
 fetchData(url);
